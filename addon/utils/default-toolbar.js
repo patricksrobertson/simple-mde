@@ -1,0 +1,1 @@
+export default ["bold", "italic", "strikethrough", "|", "heading-1", "heading-2", "heading-3", "|", "unordered-list", "ordered-list", "|", "link", "horizontal-rule"];

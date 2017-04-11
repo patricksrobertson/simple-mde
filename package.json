@@ -1,17 +1,16 @@
 {
   "name": "simple-mde",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Slightly fancier simplemde plugin than the default one",
   "keywords": [
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Patrick Robertson",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/patricksrobertson/simple-mde",
   "scripts": {
     "build": "ember build",
     "start": "ember server",

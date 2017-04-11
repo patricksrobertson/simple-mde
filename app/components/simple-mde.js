@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import layout from '../templates/components/simple-mde';
+import defaultToolbar from 'simple-mde/utils/default-toolbar';
 
 const { TextArea, computed, merge, isEmpty } = Ember;
 
@@ -7,12 +8,16 @@ export default TextArea.extend({
   layout,
   currentEditor: null,
   change: null,
-  toolbar: ["bold", "italic", "strikethrough", "|", "heading-1", "heading-2", "heading-3", "|", "unordered-list", "ordered-list", "|", "link", "horizontal-rule", {
-    name: "guide",
-    action: "https://canopy.iorahealth.com/x/5gG7BQ",
-    className: "fa fa-question-circle",
-    title: "Formatting help"
-  }],
+
+  toolbar: computed('guide', function() {
+    const guide = this.get('guide');
+    if (!isEmpty(guide)) {
+      return defaultToolbar.addObject(this.get('guide'));
+    } else {
+      return defaultToolbar;
+    }
+  }),
+
   buildSimpleMDEOptions: computed(function() {
     return {
       status: false,

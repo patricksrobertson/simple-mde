@@ -1,27 +1,34 @@
 # simple-mde
-
-This README outlines the details of collaborating on this Ember addon.
-
+This is a slight expansion of the addon [https://github.com/smith-carson/ember-simplemde](https://github.com/smith-carson/ember-simplemde). It gives a basic set of defaults around
+the toolbar for editing the texta area and allows passing in of a guide
 ## Installation
+```sh
+  ember install simple-mde
+  bower install
+```
 
-* `git clone <repository-url>` this repository
-* `cd simple-mde`
-* `npm install`
-* `bower install`
+## Usage
 
-## Running
+Edit things with simpleMDE
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+```hbs
+{{simple-mde value=body change=(action (mut body) ) guide=guideLink}}
+```
 
-## Running Tests
+Here's what the guide should look like:
+```js
+guide = {
+  name: "guide",
+  action: "https://i.am.a.link.com",
+  className: "fa fa-question-circle",
+  title: "Formatting help"
+};
+```
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+Preview that guy:
+```hbs
+{{simple-mde-preview body}}
+```
 
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+## License
+MIT

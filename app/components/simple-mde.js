@@ -5,19 +5,13 @@ import defaultToolbar from 'simple-mde/utils/default-toolbar';
 const { TextArea, computed, merge, isEmpty } = Ember;
 
 export default TextArea.extend({
+  init() {
+    this._super(...arguments);
+    this.set('toolbar', toolbar(this.get('guide')));
+  },
   layout,
   currentEditor: null,
   change: null,
-
-  toolbar: computed('guide', function() {
-    const guide = this.get('guide');
-    if (!isEmpty(guide)) {
-      return defaultToolbar.addObject(this.get('guide'));
-    } else {
-      return defaultToolbar;
-    }
-  }),
-
   buildSimpleMDEOptions: computed(function() {
     return {
       status: false,
@@ -50,3 +44,11 @@ export default TextArea.extend({
     editor.codemirror.getDoc().setCursor(cursor);
   }
 });
+
+function toolbar(guide) {
+  const newToolbar = defaultToolbar.slice();
+  if (!isEmpty(guide)) {
+    newToolbar.push(guide);
+  }
+  return newToolbar;
+}

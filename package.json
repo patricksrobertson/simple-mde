@@ -1,6 +1,6 @@
 {
   "name": "simple-mde",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Slightly fancier simplemde plugin than the default one",
   "keywords": [
     "ember-addon"

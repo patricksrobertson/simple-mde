@@ -7,7 +7,7 @@ const { TextArea, computed, merge, isEmpty } = Ember;
 export default TextArea.extend({
   init() {
     this._super(...arguments);
-    this.set('toolbar', toolbar(this.get('guide')));
+    this.set('toolbar', toolbar(this.get('toolbarItems')));
   },
   layout,
   currentEditor: null,
@@ -46,10 +46,12 @@ export default TextArea.extend({
   }
 });
 
-function toolbar(guide) {
+function toolbar(items) {
   const newToolbar = defaultToolbar.slice();
-  if (!isEmpty(guide)) {
-    newToolbar.push(guide);
+  if (!isEmpty(items)) {
+    items.map((item) => {
+      newToolbar.push(item);
+    });
   }
   return newToolbar;
 }

@@ -17,7 +17,7 @@ export default TextArea.extend({
       status: false,
       autofocus: true,
       toolbar: this.get('toolbar'),
-      spellChecker: false
+      spellChecker: true
     };
   }),
 
